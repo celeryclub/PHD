@@ -1,0 +1,6 @@
+# Production configuration
+SetEnv FOO bar
+
+RewriteEngine On
+RewriteCond $1 !^deploy/
+RewriteRule ^(.*)$ /deploy/$1 [L]
