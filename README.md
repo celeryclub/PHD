@@ -18,6 +18,12 @@ _This setup has been confirmed to work on DreamHost. Your mileage may vary._
 3. CD into your domain directory and make sure it's empty
 4. Clone this repo (`git clone https://github.com/stephendavis89/PHD.git .`)
 
+## Environment variables
+
+Environment variables can be set with `SetEnv` in the root-level `.htaccess` file. An example variable is provided. After setting the values, all requests will be rewritten to the `deploy` directory.
+
+**TIP:** If you're using a web framework such as [Slim](http://www.slimframework.com/) or [Laravel](http://laravel.com/), try rewriting to `deploy/public` instead. An alternate rewrite rule is provided.
+
 ## Deploying with Git
 
 1. Create a git directory (`mkdir -p ~/git && cd ~/git`)
@@ -28,6 +34,7 @@ _This setup has been confirmed to work on DreamHost. Your mileage may vary._
   mv hooks/post-receive.sample hooks/post-receive
   chmod +x hooks/post-receive
   ```
+
 5. Edit the post-receive hook (`nano hooks/post-receive`) and insert the following content:
   ```sh
   #!/bin/sh
@@ -62,4 +69,8 @@ And add this to your .bash_profile:
 export PATH=~/bin:$PATH
 ```
 
-Don't forget to insert `composer install` into your post-receive hook for maximum good times.
+Don't forget to add composer installation to your post-receive hook for maximum good times:
+
+```sh
+(cd ~/myproject.com/deploy && exec composer install --no-dev)
+```
