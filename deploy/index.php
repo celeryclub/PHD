@@ -1,3 +1,5 @@
 <?php
 
-echo 'FOO: '.$_ENV['FOO'];
+@include __DIR__.'/../environment.php';
+
+echo 'FOO: '.getenv('FOO');

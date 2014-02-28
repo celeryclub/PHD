@@ -20,9 +20,9 @@ _This setup has been confirmed to work on DreamHost. Your mileage may vary._
 
 ## Environment variables
 
-Environment variables can be set with `SetEnv` in the root-level `.htaccess` file. An example variable is provided. After setting the values, all requests will be rewritten to the `deploy` directory.
+Environment variables can be set with `putenv` in a root-level PHP file named `environment.php`. An example variable is provided. Make sure to configure your domain to use `myproject.com/deploy` as its web root.
 
-**TIP:** If you're using a web framework such as [Slim](http://www.slimframework.com/) or [Laravel](http://laravel.com/), try rewriting to `deploy/public` instead. An alternate rewrite rule is provided.
+**TIP:** If you're using a web framework such as [Slim](http://www.slimframework.com/) or [Laravel](http://laravel.com/), use `myproject.com/deploy/public` as the web root instead.
 
 ## Deploying with Git
 
