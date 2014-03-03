@@ -63,13 +63,13 @@ mkdir -p ~/bin
 mv composer.phar ~/bin/composer
 ```
 
-And add this to your .bash_profile:
+And add this to your `.bashrc`:
 
 ```sh
 export PATH=~/bin:$PATH
 ```
 
-Don't forget to add composer installation to your post-receive hook for maximum good times:
+Don't forget to add composer installation to your `post-receive` hook for maximum good times:
 
 ```sh
 (cd ~/myproject.com/deploy && exec composer install --no-dev)
